@@ -10,7 +10,7 @@ public class BlocksWorld {
 	private static int pushedStates = 0;
 	
 	public static void main(String[] args) {
-		int heuriticType = HeuristicConstants.CUSTOM_HEURISTIC;
+		int heuriticType = HeuristicConstants.OUT_OF_PLACE;
 		State initialState = new State(3, 5, heuriticType);
 		initialState.getBlocksArrangement()[0].add('B');
 		initialState.getBlocksArrangement()[1].add('C');
@@ -20,11 +20,12 @@ public class BlocksWorld {
 		initialState.calculateHeuristic();
 		initialState.printBlocks();
 		
-		
 		runHeuristicSearch(initialState);	
 	}
 
 	public static void runHeuristicSearch(State initialState) {
+		goalStatesChecked = 0;
+		pushedStates = 0;
 		StateFrontier frontier = new StateFrontier();
 		ArrayList<State> visited = new ArrayList<State>();
 		initialState.setDepth(0);
@@ -41,7 +42,7 @@ public class BlocksWorld {
 				System.out.println("Goal States Checked = " + goalStatesChecked);
 				System.out.println("Depth = " + (poppedState.getDepth()));
 				System.out.println("Max Queue Size = " + frontier.getMaxSize());
-				System.out.println("Pushed States = " + pushedStates);
+				// System.out.println("Pushed States = " + pushedStates);
 				printMoveList(poppedState);
 				return;
 			}			
@@ -54,11 +55,12 @@ public class BlocksWorld {
 						if (!isVisited(newState, visited)) {
 							newState.calculateHeuristic();
 							newState.setPreviousState(poppedState);
-							// newState.printBlocks(); 
-							// System.out.println("Score - " + newState.getHeuristicScore());
+							//newState.printBlocks(); 
+							//System.out.println("Score - " + newState.getHeuristicScore());
+							//System.out.println(pushedStates);
 							frontier.push(newState);
 							pushedStates++;
-							visited.add(initialState);
+							visited.add(newState);
 						}						
 					}
 				}

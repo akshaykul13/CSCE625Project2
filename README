@@ -1,0 +1,18 @@
+CSCE 625 - Artificial Intelligence
+Project 2
+
+There are three ways to run this project. Both out of place and the new heuristic will be run to show comparison.
+
+1. The source files are given in the folder CSCE625Project2/src. These files can be compiled and the astar/BlocksWorldRandomGenerator.class should be run.
+	Akshays-MacBook-Pro:bin akshaykulkarni$ java -cp . astar/BlocksWorldRandomGenerator 5 3
+	Argument 1: Number of blocks
+	Argument 2: Number of stacks
+
+2. The class files are given in the folder CSCE625Project1/bin. The navigators/Navigator.class should be run.
+	Akshays-MacBook-Pro:bin akshaykulkarni$ java -cp . astar/BlocksWorldRandomGenerator 5 3
+	Argument 1: Number of blocks
+	Argument 2: Number of stacks
+
+3. The Eclipse project is given in the zip file called CSCE625Project2.zip, this project should be imported into Eclipse and the BlocksWorldRandomGenerator class in the astar package should be run.
+
+Recommended method is point 2.

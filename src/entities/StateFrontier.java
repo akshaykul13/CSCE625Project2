@@ -11,7 +11,8 @@ public class StateFrontier {
 	
 	public StateFrontier() {
 		HeuristicComparator hc = new HeuristicComparator();
-		priorityQueue = new PriorityQueue<State>(10000, hc);					
+		priorityQueue = new PriorityQueue<State>(200000, hc);
+		maxSize = 0;
 	}
 	
 	public class HeuristicComparator implements Comparator<State> {		
